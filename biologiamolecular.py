@@ -1,20 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[7]:
-
-
 #Esta función devuelve la cantidad de cada nucleótido
-
 def count_nt(seq):
     print('Cant A: ' + str(seq.upper().count('A')) + ', Cant C: ' + str(seq.upper().count('C')) + ', Cant G: ' + str(seq.upper().count('G')) + ', Cant T: ' + str(seq.upper().count('T')))
 
-
-# In[19]:
-
-
+    
 #Esta función devuelve la cantidad del/de los aminoácido/s indicado/s en la secuencia de proteína (ingresar los aminoácidos deseados como una lista)
-
 def porc_aa(seq, aa_list):
     total = 0
     
@@ -26,22 +15,14 @@ def porc_aa(seq, aa_list):
     print('La proteína es {:.2f}% {}'.format(total, ', '.join(aa_list)))
 
 
-# In[40]:
-
-
 #Transcripción ADN a ARN
-
 def transcripcion(seq):
     arn = seq.upper().replace('T', 'U')
     print('Secuencia de ARN: ' + seq.upper().replace('T', 'U'))
     return arn
 
 
-# In[37]:
-
-
 #Traducción ARN a proteína
-
 def traduccion(seq):
     seq = seq.upper()
     code = {'AUA':'I', 'AUC':'I', 'AUU':'I', 'AUG':'M', 'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACU':'T', 'AAC':'N', 'AAU':'N', 
@@ -66,18 +47,13 @@ def traduccion(seq):
     return protein
 
 
-# In[43]:
-
-
 #Cálculo del peso molecular de una proteína
-
 def pm_prot(seq):
     pm_dic = {'A': 71.03711, 'C': 103.00919, 'D': 115.02694, 'E': 129.04259, 'F': 147.06841, 'G': 57.02146, 'H': 137.05891,
               'I': 113.08406, 'K': 128.09496, 'L': 113.08406, 'M': 131.04049, 'N': 114.04293, 'P': 97.05276, 'Q': 128.05858,
               'R': 156.10111, 'S': 87.03203, 'T': 101.04768, 'V': 99.06841, 'W': 186.07931, 'Y': 163.06333 }
 
     pm = 0
-
     for aa in seq.upper():
         pm += pm_dic[aa]
     
@@ -85,11 +61,7 @@ def pm_prot(seq):
     return pm
 
 
-# In[57]:
-
-
 #Esta función devuelve la hebra reversa complementaria
-
 def rev_compl(seq):
     seq_rc = seq.upper()[::-1]
                
@@ -106,12 +78,7 @@ def rev_compl(seq):
     print('Hebra reversa complementaria: ' + seq_rc)
     return seq_rc
 
-
-# In[66]:
-
-
 #Esta función devuelve el número de mutaciones puntuales entre dos secuencias del mismo largo
-
 def mut_punt(seq1, seq2):
     if len(seq1) != len(seq2):
         print('Las secuencias no presentan el mismo largo.')
@@ -130,22 +97,14 @@ def mut_punt(seq1, seq2):
         return q
 
 
-# In[69]:
-
-
 #Calcular contenido GC
-
 def cont_gc(seq):
     contenidogc = (seq.count('G') + seq.count('g') + seq.count('C') + seq.count('c')) *100 / len(seq)
     print('El contenido de GC es del ' + str(contenidogc) + '%')        
     return contenidogc
 
 
-# In[71]:
-
-
 #Esta función devuelve el patrón más frecuente de largo k ingresado
-
 def pat_freq(seq, k):
     freq = {}
     n = len(seq)
@@ -168,11 +127,7 @@ def pat_freq(seq, k):
     return most_freq
 
 
-# In[76]:
-
-
 #Esta función devuelve las posiciones donde se encuentra un patrón considerando la cantidad de diferencias indicada como dif
-
 def pos_patron(seq, pat, dif):
     seq = seq.upper()
     pat = pat.upper()
@@ -192,11 +147,7 @@ def pos_patron(seq, pat, dif):
     return positions
 
 
-# In[80]:
-
-
 #Esta función devuelve la cantidad de veces que aparece un patrón considerando la cantidad de diferencias indicada como dif
-
 def cant_patron(seq, pat, dif):
     seq = seq.upper()
     pat = pat.upper()
@@ -216,11 +167,7 @@ def cant_patron(seq, pat, dif):
     return cant
 
 
-# In[87]:
-
-
 #Esta función devuelve la secuencia consenso a partir de una lista de secuencias cargadas
-
 def seq_consenso(s):
     count = {}
     k = len(s[0])
@@ -248,11 +195,7 @@ def seq_consenso(s):
     return consensus
 
 
-# In[92]:
-
-
 #Esta función devuelve una matriz de probabilidad para cada nucleótido a partir de una lista de secuencias cargadas
-
 def matriz_prob(s):
     count = {}
     k = len(s[0])
@@ -275,4 +218,3 @@ def matriz_prob(s):
 
     print('La matriz de probabilidad es ' + str(profile))
     return profile
-
